@@ -95,6 +95,15 @@ class ApostaService
     {
         try {
 
+            $concurso = $this->concursoModel->find($attributes['concurso_id']);
+
+            if ($concurso->sorteado) {
+                return $data = [
+                    'class' => 'danger',
+                    'mensagem' => 'O concurso foi finalizado!!!'
+                ];
+            }
+
             $price = $this->priceModel->find($attributes['price_id']);
             $quantidade_numeros = $price->quantidade;
             $maximo_numeros = $price->jogo->number_quantity;

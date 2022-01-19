@@ -34,9 +34,9 @@
 
         @if (session()->has('danger'))
             <div class="mt-4 mb-4">
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     {{ session('danger') }}
-                    <button type="button" class="btn-close" data-bs-dimiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
         @endif

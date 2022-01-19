@@ -13,6 +13,7 @@
         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#apostaAutomática">Aposta Automática</button>
     @endif
 
+
     <section class="mt-2">
         <table class="table">
             <thead>
@@ -88,13 +89,13 @@
                     <div class="mx-auto">
                         @foreach ($concurso->jogo->prices as $item)
 
-                            <form action="{{route('aposta.store')}}" class="d-inline" method="POST">
+                            <form action="{{ route('aposta.store') }}" class="d-inline" method="POST">
                                 @csrf
-                                <input type="hidden" name="price_id" value="{{$item->id}}">
-                                <input type="hidden" name="concurso_id" value="{{$concurso_id}}">
+                                <input type="hidden" name="price_id" value="{{ $item->id }}">
+                                <input type="hidden" name="concurso_id" value="{{ $concurso_id }}">
                                 <input type="hidden" name="aposta" value="automatico">
 
-                                <button class="btn btn-info" type="submit">{{$item->quantidade}}</button>
+                                <button class="btn btn-info" type="submit">{{ $item->quantidade }}</button>
                             </form>
 
                             {{-- <a href="" class="btn btn-info">{{$item->quantidade}}</a> --}}
